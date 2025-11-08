@@ -7,7 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.application_anonyme.databinding.ActivityLoginBinding
-import com.example.application_anonyme.MainActivity
+import com.example.application_anonyme.ui.main.MainActivity
 import com.example.application_anonyme.utils.Constants
 import com.example.application_anonyme.utils.PreferenceManager
 

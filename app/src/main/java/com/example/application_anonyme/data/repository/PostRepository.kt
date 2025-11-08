@@ -1,8 +1,11 @@
 package com.example.application_anonyme.data.repository
 
+import com.example.application_anonyme.data.api.CreatePostRequest
+import com.example.application_anonyme.data.api.FeedResponse
+import com.example.application_anonyme.data.api.Post
+import com.example.application_anonyme.data.api.PostResponse
 import com.example.application_anonyme.data.api.RetrofitClient
-import com.example.application_anonyme.data.model.CreatePostRequest
-import com.example.application_anonyme.data.model.Post
+import com.example.application_anonyme.data.api.UserPostsResponse
 import com.example.application_anonyme.utils.Constants
 import com.example.application_anonyme.utils.NetworkResult
 import kotlinx.coroutines.Dispatchers
@@ -17,19 +20,19 @@ class PostRepository {
     /**
      * Récupérer tous les posts du fil d'actualité
      */
-    suspend fun getPosts(): NetworkResult<List<Post>> {
+    suspend fun getPosts(page: Int = 1, limit: Int = 20): NetworkResult<FeedResponse> {
         return withContext(Dispatchers.IO) {
             try {
-                val response = apiService.getPosts()
+                val response = apiService.getPosts(page, limit)
 
                 if (response.isSuccessful) {
-                    response.body()?.let { posts ->
+                    response.body()?.let { feedResponse ->
                         // Filtrer uniquement les posts approuvés
-                        val approvedPosts = posts.filter {
-                            it.moderationStatus == "approved" || it.isModerated
+                        val approvedPosts = feedResponse.posts.filter { post ->
+                            post.isApproved == true
                         }
-                        NetworkResult.Success(approvedPosts)
-                    } ?: NetworkResult.Success(emptyList())
+                        NetworkResult.Success(FeedResponse(approvedPosts, feedResponse.pagination))
+                    } ?: NetworkResult.Error("Réponse vide du serveur")
                 } else {
                     NetworkResult.Error(
                         when (response.code()) {
@@ -54,7 +57,7 @@ class PostRepository {
     suspend fun createPost(
         content: String,
         token: String
-    ): NetworkResult<Post> {
+    ): NetworkResult<PostResponse> {
         return withContext(Dispatchers.IO) {
             try {
                 val request = CreatePostRequest(content)
@@ -88,16 +91,16 @@ class PostRepository {
     }
 
     /**
-     * Récupérer les posts d'un utilisateur spécifique
+     * Récupérer les posts de l'utilisateur connecté
      */
-    suspend fun getUserPosts(userId: String, token: String): NetworkResult<List<Post>> {
+    suspend fun getUserPosts(token: String): NetworkResult<List<Post>> {
         return withContext(Dispatchers.IO) {
             try {
-                val response = apiService.getUserPosts("Bearer $token", userId)
+                val response = apiService.getUserPosts("Bearer $token")
 
                 if (response.isSuccessful) {
-                    response.body()?.let {
-                        NetworkResult.Success(it)
+                    response.body()?.let { userPostsResponse ->
+                        NetworkResult.Success(userPostsResponse.posts)
                     } ?: NetworkResult.Success(emptyList())
                 } else {
                     NetworkResult.Error(
@@ -121,7 +124,7 @@ class PostRepository {
     /**
      * Supprimer un post
      */
-    suspend fun deletePost(postId: String, token: String): NetworkResult<Boolean> {
+    suspend fun deletePost(postId: Int, token: String): NetworkResult<Boolean> {
         return withContext(Dispatchers.IO) {
             try {
                 val response = apiService.deletePost("Bearer $token", postId)

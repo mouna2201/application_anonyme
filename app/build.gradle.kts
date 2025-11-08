@@ -81,6 +81,7 @@ dependencies {
 
     // RecyclerView
     implementation(libs.androidx.recyclerview)
+    implementation(libs.androidx.swiperefreshlayout)
 
     // SharedPreferences chiffré
     implementation(libs.androidx.security.crypto)

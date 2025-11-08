@@ -1,5 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <style name="Base.Theme.ApplicationAnonyme" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.Application_anonyme" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primary_dark</item>
         <item name="colorAccent">@color/secondary</item>
@@ -7,5 +8,5 @@
         <item name="android:windowLightStatusBar">false</item>
     </style>
 
-    <style name="Theme.ApplicationAnonyme" parent="Base.Theme.ApplicationAnonyme" />
+    <style name="Theme.Application_anonyme" parent="Base.Theme.Application_anonyme" />
 </resources>

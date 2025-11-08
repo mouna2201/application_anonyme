@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Application Anonyme</string>
 
@@ -11,7 +12,7 @@
     <string name="error_pseudo_long">Maximum 20 caractères</string>
 
     <!-- Feed -->
-    <string name="feed_title">Fil d\\'actualité</string>
+    <string name="feed_title">Fil d\'actualité</string>
     <string name="feed_empty">Aucune publication pour le moment</string>
     <string name="feed_refresh">Actualiser</string>
 

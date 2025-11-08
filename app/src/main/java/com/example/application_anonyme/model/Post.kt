@@ -1,4 +1,9 @@
 package com.example.application_anonyme.model
 
-class Post {
-}
+data class Post(
+    val id: String,
+    val content: String,
+    val authorPseudo: String,
+    val createdAt: String,
+    val isModerated: Boolean = false
+)

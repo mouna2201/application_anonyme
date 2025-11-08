@@ -56,4 +56,31 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    implementation(libs.androidx.core.ktx.v1120)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+
+    // Navigation
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+
+    // ViewModel et LiveData
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+
+    // Retrofit pour API
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+
+    // Coroutines
+    implementation(libs.kotlinx.coroutines.android)
+
+    // RecyclerView
+    implementation(libs.androidx.recyclerview)
+
+    // SharedPreferences chiffré
+    implementation(libs.androidx.security.crypto)
+
+    // Image loading (Glide)
+    implementation(libs.glide)
 }

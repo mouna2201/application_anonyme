@@ -9,7 +9,6 @@
     android:background="@color/background"
     tools:context=".ui.auth.LoginActivity">
 
-    <!-- Logo de l'application -->
     <ImageView
         android:id="@+id/appLogo"
         android:layout_width="120dp"
@@ -22,7 +21,6 @@
         android:layout_marginTop="80dp"
         app:tint="@color/primary"/>
 
-    <!-- Titre de l'application -->
     <TextView
         android:id="@+id/appTitle"
         android:layout_width="wrap_content"
@@ -36,7 +34,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"/>
 
-    <!-- Sous-titre -->
     <TextView
         android:id="@+id/appSubtitle"
         android:layout_width="wrap_content"
@@ -49,7 +46,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="8dp"/>
 
-    <!-- Champ de saisie du pseudo -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/pseudoInputLayout"
         android:layout_width="0dp"
@@ -73,7 +69,6 @@
             android:maxLength="20"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Bouton de connexion -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/loginButton"
         android:layout_width="0dp"
@@ -88,7 +83,6 @@
         app:cornerRadius="8dp"
         android:backgroundTint="@color/primary"/>
 
-    <!-- Indicateur de chargement -->
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"

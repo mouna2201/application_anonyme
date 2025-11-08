@@ -23,7 +23,7 @@ class PreferenceManager(context: Context) {
 
     fun saveUser(user: User, token: String) {
         sharedPreferences.edit().apply {
-            putString(Constants.KEY_USER_ID, user.id.toString())
+            putString(Constants.KEY_USER_ID, user.id) // User.id is already a String
             putString(Constants.KEY_USER_PSEUDO, user.pseudo)
             putString(Constants.KEY_USER_TOKEN, token)
             putString(Constants.KEY_USER_CREATED_AT, user.createdAt)

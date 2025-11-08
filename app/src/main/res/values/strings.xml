@@ -1,3 +1,44 @@
 <resources>
-    <string name="app_name">application_anonyme</string>
+    <string name="app_name">Application Anonyme</string>
+
+    <!-- Auth -->
+    <string name="login_title">Bienvenue</string>
+    <string name="login_subtitle">Rejoignez la communauté anonyme</string>
+    <string name="pseudo_hint">Choisir un pseudo anonyme</string>
+    <string name="btn_continue">Continuer</string>
+    <string name="error_pseudo_empty">Le pseudo est requis</string>
+    <string name="error_pseudo_short">Minimum 3 caractères</string>
+    <string name="error_pseudo_long">Maximum 20 caractères</string>
+
+    <!-- Feed -->
+    <string name="feed_title">Fil d\\'actualité</string>
+    <string name="feed_empty">Aucune publication pour le moment</string>
+    <string name="feed_refresh">Actualiser</string>
+
+    <!-- Create Post -->
+    <string name="create_post_title">Nouvelle publication</string>
+    <string name="create_post_hint">Que voulez-vous partager anonymement ?</string>
+    <string name="btn_publish">Publier</string>
+    <string name="error_post_empty">Le contenu ne peut pas être vide</string>
+    <string name="error_post_long">Maximum 500 caractères</string>
+    <string name="success_post_created">Publication créée avec succès</string>
+
+    <!-- Profile -->
+    <string name="profile_title">Profil</string>
+    <string name="profile_member_since">Membre depuis %s</string>
+    <string name="btn_logout">Se déconnecter</string>
+    <string name="logout_confirm">Êtes-vous sûr de vouloir vous déconnecter ?</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Accueil</string>
+    <string name="nav_create">Créer</string>
+    <string name="nav_profile">Profil</string>
+
+    <!-- Common -->
+    <string name="loading">Chargement…</string>
+    <string name="error_network">Erreur de connexion</string>
+    <string name="error_unknown">Une erreur est survenue</string>
+    <string name="btn_retry">Réessayer</string>
+    <string name="btn_cancel">Annuler</string>
+    <string name="btn_ok">OK</string>
 </resources>

@@ -1,5 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Base.Theme.ApplicationAnonyme" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/secondary</item>
+        <item name="android:statusBarColor">@color/primary</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
 
-    <style name="Theme.Application_anonyme" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.ApplicationAnonyme" parent="Base.Theme.ApplicationAnonyme" />
 </resources>

@@ -1,6 +1,11 @@
 package com.example.application_anonyme.data.api
 
-import com.example.application_anonyme.data.model.*
+import com.example.application_anonyme.data.model.CreatePostRequest
+import com.example.application_anonyme.data.model.LoginRequest
+import com.example.application_anonyme.data.model.LoginResponse
+import com.example.application_anonyme.data.model.ModerationDecision
+import com.example.application_anonyme.data.model.Post
+import com.example.application_anonyme.data.model.User
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -61,11 +66,3 @@ interface ApiService {
         @Body decision: ModerationDecision
     ): Response<Post>
 }
-
-/**
- * Modèle pour la décision de modération
- */
-data class ModerationDecision(
-    val status: String, // "approved" ou "rejected"
-    val reason: String? = null
-)

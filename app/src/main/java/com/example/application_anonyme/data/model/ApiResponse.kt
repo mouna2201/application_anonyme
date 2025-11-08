@@ -1,4 +1,4 @@
-package com.votrenom.application_anonyme.data.model
+package com.example.application_anonyme.data.model
 
 import com.google.gson.annotations.SerializedName
 
@@ -29,4 +29,11 @@ data class LoginResponse(
 data class CreatePostRequest(
     @SerializedName("content")
     val content: String
+)
+
+data class ModerationDecision(
+    @SerializedName("status")
+    val status: String, // "approved" ou "rejected"
+    @SerializedName("reason")
+    val reason: String? = null
 )

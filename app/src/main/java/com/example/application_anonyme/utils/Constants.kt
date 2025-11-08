@@ -1,4 +1,4 @@
-package com.votrenom.application_anonyme.utils
+package com.example.application_anonyme.utils
 
 object Constants {
     // API

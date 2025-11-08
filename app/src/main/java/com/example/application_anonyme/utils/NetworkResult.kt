@@ -1,4 +1,4 @@
-package com.votrenom.application_anonyme.utils
+package com.example.application_anonyme.utils
 
 sealed class NetworkResult<T>(
     val data: T? = null,

@@ -1,10 +1,10 @@
-package com.votrenom.application_anonyme.utils
+package com.example.application_anonyme.utils
 
 import android.content.Context
 import android.content.SharedPreferences
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
-import com.votrenom.application_anonyme.data.model.User
+import com.example.application_anonyme.data.model.User
 
 class PreferenceManager(context: Context) {
 

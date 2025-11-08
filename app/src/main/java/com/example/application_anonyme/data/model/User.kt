@@ -1,4 +1,4 @@
-package com.votrenom.application_anonyme.data.model
+package com.example.application_anonyme.data.model
 
 import com.google.gson.annotations.SerializedName
 

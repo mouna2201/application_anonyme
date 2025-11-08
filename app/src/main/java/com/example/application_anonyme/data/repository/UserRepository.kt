@@ -1,11 +1,11 @@
-package com.votrenom.application_anonyme.data.repository
+package com.example.application_anonyme.data.repository
 
-import com.votrenom.application_anonyme.data.api.RetrofitClient
-import com.votrenom.application_anonyme.data.model.LoginRequest
-import com.votrenom.application_anonyme.data.model.LoginResponse
-import com.votrenom.application_anonyme.data.model.User
-import com.votrenom.application_anonyme.utils.Constants
-import com.votrenom.application_anonyme.utils.NetworkResult
+import com.example.application_anonyme.data.api.RetrofitClient
+import com.example.application_anonyme.data.model.LoginRequest
+import com.example.application_anonyme.data.model.LoginResponse
+import com.example.application_anonyme.data.model.User
+import com.example.application_anonyme.utils.Constants
+import com.example.application_anonyme.utils.NetworkResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException

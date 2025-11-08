@@ -1,6 +1,6 @@
 package com.example.application_anonyme.data.api
 
-import com.android.identity.util.Constants
+import com.example.application_anonyme.utils.Constants
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

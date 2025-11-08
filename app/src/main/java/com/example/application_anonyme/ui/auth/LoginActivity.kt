@@ -1,4 +1,4 @@
-package com.votrenom.application_anonyme.ui.auth
+package com.example.application_anonyme.ui.auth
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,10 +6,10 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.votrenom.application_anonyme.databinding.ActivityLoginBinding
-import com.votrenom.application_anonyme.ui.main.MainActivity
-import com.votrenom.application_anonyme.utils.Constants
-import com.votrenom.application_anonyme.utils.PreferenceManager
+import com.example.application_anonyme.databinding.ActivityLoginBinding
+import com.example.application_anonyme.MainActivity
+import com.example.application_anonyme.utils.Constants
+import com.example.application_anonyme.utils.PreferenceManager
 
 class LoginActivity : AppCompatActivity() {
 
@@ -48,15 +48,15 @@ class LoginActivity : AppCompatActivity() {
     private fun validatePseudo(pseudo: String): Boolean {
         return when {
             pseudo.isEmpty() -> {
-                binding.pseudoInputLayout.error = getString(com.votrenom.application_anonyme.R.string.error_pseudo_empty)
+                binding.pseudoInputLayout.error = getString(com.example.application_anonyme.R.string.error_pseudo_empty)
                 false
             }
             pseudo.length < Constants.MIN_PSEUDO_LENGTH -> {
-                binding.pseudoInputLayout.error = getString(com.votrenom.application_anonyme.R.string.error_pseudo_short)
+                binding.pseudoInputLayout.error = getString(com.example.application_anonyme.R.string.error_pseudo_short)
                 false
             }
             pseudo.length > Constants.MAX_PSEUDO_LENGTH -> {
-                binding.pseudoInputLayout.error = getString(com.votrenom.application_anonyme.R.string.error_pseudo_long)
+                binding.pseudoInputLayout.error = getString(com.example.application_anonyme.R.string.error_pseudo_long)
                 false
             }
             else -> {

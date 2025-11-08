@@ -1,13 +1,13 @@
-package com.votrenom.application_anonyme.ui.auth
+package com.example.application_anonyme.ui.auth
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.votrenom.application_anonyme.data.model.LoginRequest
-import com.votrenom.application_anonyme.data.model.User
-import com.votrenom.application_anonyme.data.repository.UserRepository
-import com.votrenom.application_anonyme.utils.NetworkResult
+import com.example.application_anonyme.data.model.LoginRequest
+import com.example.application_anonyme.data.model.User
+import com.example.application_anonyme.data.repository.UserRepository
+import com.example.application_anonyme.utils.NetworkResult
 import kotlinx.coroutines.launch
 
 sealed class LoginState {

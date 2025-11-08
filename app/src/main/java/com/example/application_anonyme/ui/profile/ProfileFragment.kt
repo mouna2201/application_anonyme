@@ -9,10 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.votrenom.anonymoussocial.databinding.FragmentProfileBinding
-import com.votrenom.anonymoussocial.ui.auth.LoginActivity
-import com.votrenom.anonymoussocial.ui.feed.PostAdapter
-import com.votrenom.anonymoussocial.utils.*
+import com.example.application_anonyme.databinding.FragmentProfileBinding
+import com.example.application_anonyme.ui.auth.LoginActivity
+import com.example.application_anonyme.ui.feed.PostAdapter
+import com.example.application_anonyme.utils.*
 
 class ProfileFragment : Fragment() {
 

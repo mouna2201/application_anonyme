@@ -40,7 +40,9 @@ class LoginActivity : AppCompatActivity() {
             val pseudo = binding.pseudoEditText.text.toString().trim()
 
             if (validatePseudo(pseudo)) {
-                viewModel.login(pseudo)
+                // Note: L'API nécessite un mot de passe, mais pour l'instant on utilise une chaîne vide
+                // TODO: Ajouter un champ mot de passe dans l'UI
+                viewModel.login(pseudo, "")
             }
         }
     }

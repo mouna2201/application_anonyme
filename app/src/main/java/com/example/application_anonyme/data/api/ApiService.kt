@@ -1,5 +1,5 @@
 // api/ApiService.kt
-package com.votrenom.anonymoussocial.api
+package com.example.application_anonyme.data.api
 
 import retrofit2.Response
 import retrofit2.http.*

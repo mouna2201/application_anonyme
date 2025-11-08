@@ -1,15 +1,13 @@
 package com.example.application_anonyme.ui.feed
 
-
-
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.votrenom.anonymoussocial.api.Post
-import com.votrenom.anonymoussocial.databinding.ItemPostBinding
-import com.votrenom.anonymoussocial.utils.formatDate
+import com.example.application_anonyme.data.api.Post
+import com.example.application_anonyme.databinding.ItemPostBinding
+import com.example.application_anonyme.utils.formatDate
 
 class PostAdapter : ListAdapter<Post, PostAdapter.PostViewHolder>(PostDiffCallback()) {
 

@@ -1,17 +1,16 @@
 // ui/main/MainActivity.kt
-package com.votrenom.anonymoussocial.ui.main
+package com.example.application_anonyme.ui.main
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.votrenom.anonymoussocial.R
-import com.votrenom.anonymoussocial.databinding.ActivityMainBinding
-import com.votrenom.anonymoussocial.ui.auth.LoginActivity
-import com.votrenom.anonymoussocial.ui.feed.FeedFragment
-import com.votrenom.anonymoussocial.ui.profile.ProfileFragment
-import com.votrenom.anonymoussocial.utils.PreferenceManager
+import com.example.application_anonyme.R
+import com.example.application_anonyme.databinding.ActivityMainBinding
+import com.example.application_anonyme.ui.auth.LoginActivity
+import com.example.application_anonyme.ui.feed.FeedFragment
+import com.example.application_anonyme.ui.profile.ProfileFragment
+import com.example.application_anonyme.utils.PreferenceManager
 
 class MainActivity : AppCompatActivity() {
 
@@ -57,7 +56,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun loadFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainer, fragment)
+            .replace(R.id.nav_host_fragment, fragment)
             .commit()
     }
 

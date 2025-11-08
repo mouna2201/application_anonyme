@@ -1,18 +1,18 @@
-package com.votrenom.anonymoussocial.ui.feed
+package com.example.application_anonyme.ui.feed
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.votrenom.anonymoussocial.api.FeedResponse
-import com.votrenom.anonymoussocial.api.RetrofitClient
-import com.votrenom.anonymoussocial.utils.NetworkResult
+import com.example.application_anonyme.data.api.FeedResponse
+import com.example.application_anonyme.data.api.RetrofitClient
+import com.example.application_anonyme.utils.NetworkResult
 import kotlinx.coroutines.launch
 
 class FeedViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val api = RetrofitClient.apiService
+    private val api = RetrofitClient.instance
 
     private val _feedPosts = MutableLiveData<NetworkResult<FeedResponse>>()
     val feedPosts: LiveData<NetworkResult<FeedResponse>> = _feedPosts

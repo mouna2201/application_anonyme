@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
-import com.votrenom.anonymoussocial.databinding.FragmentCreatePostBinding
-import com.votrenom.anonymoussocial.utils.*
+import com.example.application_anonyme.databinding.FragmentCreatePostBinding
+import com.example.application_anonyme.utils.*
 
 class CreatePostFragment : DialogFragment() {
 

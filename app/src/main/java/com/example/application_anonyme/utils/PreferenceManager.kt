@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
 import com.example.application_anonyme.data.model.User
+import com.example.application_anonyme.data.api.User as ApiUser
 
 class PreferenceManager(context: Context) {
 
@@ -22,7 +23,18 @@ class PreferenceManager(context: Context) {
 
     fun saveUser(user: User, token: String) {
         sharedPreferences.edit().apply {
-            putString(Constants.KEY_USER_ID, user.id)
+            putString(Constants.KEY_USER_ID, user.id.toString())
+            putString(Constants.KEY_USER_PSEUDO, user.pseudo)
+            putString(Constants.KEY_USER_TOKEN, token)
+            putString(Constants.KEY_USER_CREATED_AT, user.createdAt)
+            putBoolean(Constants.KEY_IS_LOGGED_IN, true)
+            apply()
+        }
+    }
+    
+    fun saveUser(user: ApiUser, token: String) {
+        sharedPreferences.edit().apply {
+            putString(Constants.KEY_USER_ID, user.id.toString())
             putString(Constants.KEY_USER_PSEUDO, user.pseudo)
             putString(Constants.KEY_USER_TOKEN, token)
             putString(Constants.KEY_USER_CREATED_AT, user.createdAt)
@@ -53,6 +65,12 @@ class PreferenceManager(context: Context) {
         val createdAt = sharedPreferences.getString(Constants.KEY_USER_CREATED_AT, "") ?: ""
 
         return User(id, pseudo, createdAt)
+    }
+    
+    fun getUserPseudo(): String? = getPseudo()
+    
+    fun clearAll() {
+        sharedPreferences.edit().clear().apply()
     }
 
     fun logout() {

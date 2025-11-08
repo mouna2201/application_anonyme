@@ -1,4 +1,4 @@
-package com.votrenom.anonymoussocial.ui.feed
+package com.example.application_anonyme.ui.feed
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.votrenom.anonymoussocial.databinding.FragmentFeedBinding
-import com.votrenom.anonymoussocial.ui.post.CreatePostFragment
-import com.votrenom.anonymoussocial.utils.*
+import com.example.application_anonyme.databinding.FragmentFeedBinding
+import com.example.application_anonyme.ui.post.CreatePostFragment
+import com.example.application_anonyme.utils.*
 
 class FeedFragment : Fragment() {
 

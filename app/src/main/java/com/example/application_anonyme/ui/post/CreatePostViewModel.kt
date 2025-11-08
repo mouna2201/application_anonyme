@@ -5,16 +5,16 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.votrenom.anonymoussocial.api.CreatePostRequest
-import com.votrenom.anonymoussocial.api.PostResponse
-import com.votrenom.anonymoussocial.api.RetrofitClient
-import com.votrenom.anonymoussocial.utils.NetworkResult
-import com.votrenom.anonymoussocial.utils.PreferenceManager
+import com.example.application_anonyme.data.api.CreatePostRequest
+import com.example.application_anonyme.data.api.PostResponse
+import com.example.application_anonyme.data.api.RetrofitClient
+import com.example.application_anonyme.utils.NetworkResult
+import com.example.application_anonyme.utils.PreferenceManager
 import kotlinx.coroutines.launch
 
 class CreatePostViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val api = RetrofitClient.apiService
+    private val api = RetrofitClient.instance
     private val prefManager = PreferenceManager(application)
 
     private val _createResult = MutableLiveData<NetworkResult<PostResponse>>()
@@ -24,14 +24,14 @@ class CreatePostViewModel(application: Application) : AndroidViewModel(applicati
         viewModelScope.launch {
             _createResult.value = NetworkResult.Loading()
 
-            val token = prefManager.getAuthHeader()
+            val token = prefManager.getToken()
             if (token == null) {
                 _createResult.value = NetworkResult.Error("Non authentifié")
                 return@launch
             }
 
             try {
-                val response = api.createPost(token, CreatePostRequest(content))
+                val response = api.createPost("Bearer $token", CreatePostRequest(content))
 
                 if (response.isSuccessful && response.body() != null) {
                     _createResult.value = NetworkResult.Success(response.body()!!)

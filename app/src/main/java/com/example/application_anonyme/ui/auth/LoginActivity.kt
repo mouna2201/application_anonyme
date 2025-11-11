@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.example.application_anonyme.R
 import com.example.application_anonyme.databinding.ActivityLoginBinding
 import com.example.application_anonyme.ui.main.MainActivity
 import com.example.application_anonyme.utils.Constants
@@ -25,7 +26,6 @@ class LoginActivity : AppCompatActivity() {
         preferenceManager = PreferenceManager(this)
         viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
 
-        // Vérifier si l'utilisateur est déjà connecté
         if (preferenceManager.isLoggedIn()) {
             navigateToMain()
             return
@@ -37,35 +37,49 @@ class LoginActivity : AppCompatActivity() {
 
     private fun setupUI() {
         binding.loginButton.setOnClickListener {
+            val name = binding.nameEditText.text.toString().trim()
             val pseudo = binding.pseudoEditText.text.toString().trim()
+            val password = binding.passwordEditText.text.toString().trim()
 
-            if (validatePseudo(pseudo)) {
-                // Note: L'API nécessite un mot de passe, mais pour l'instant on utilise une chaîne vide
-                // TODO: Ajouter un champ mot de passe dans l'UI
-                viewModel.login(pseudo, "")
+            if (validateInputs(name, pseudo, password)) {
+                viewModel.login(pseudo, password)
             }
+        }
+
+        binding.registerText.setOnClickListener {
+            Toast.makeText(this, "Fonction d'inscription à venir 💫", Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun validatePseudo(pseudo: String): Boolean {
-        return when {
-            pseudo.isEmpty() -> {
-                binding.pseudoInputLayout.error = getString(com.example.application_anonyme.R.string.error_pseudo_empty)
-                false
-            }
-            pseudo.length < Constants.MIN_PSEUDO_LENGTH -> {
-                binding.pseudoInputLayout.error = getString(com.example.application_anonyme.R.string.error_pseudo_short)
-                false
-            }
-            pseudo.length > Constants.MAX_PSEUDO_LENGTH -> {
-                binding.pseudoInputLayout.error = getString(com.example.application_anonyme.R.string.error_pseudo_long)
-                false
-            }
-            else -> {
-                binding.pseudoInputLayout.error = null
-                true
-            }
+    private fun validateInputs(name: String, pseudo: String, password: String): Boolean {
+        var isValid = true
+
+        if (name.isEmpty()) {
+            binding.nameInputLayout.error = getString(R.string.error_name_empty)
+            isValid = false
+        } else binding.nameInputLayout.error = null
+
+        if (pseudo.isEmpty()) {
+            binding.pseudoInputLayout.error = getString(R.string.error_pseudo_empty)
+            isValid = false
+        } else if (pseudo.length < Constants.MIN_PSEUDO_LENGTH) {
+            binding.pseudoInputLayout.error = getString(R.string.error_pseudo_short)
+            isValid = false
+        } else {
+            binding.pseudoInputLayout.error = null
         }
+
+        if (password.isEmpty()) {
+            binding.passwordInputLayout.error = getString(R.string.error_password_empty)
+            isValid = false
+        } else if (password.length < 6) {
+            binding.passwordInputLayout.error = getString(R.string.error_password_short)
+            isValid = false
+        } else {
+            binding.passwordInputLayout.error = null
+        }
+
+        return isValid
     }
 
     private fun observeViewModel() {
@@ -74,7 +88,6 @@ class LoginActivity : AppCompatActivity() {
                 is LoginState.Loading -> {
                     binding.progressBar.visibility = View.VISIBLE
                     binding.loginButton.isEnabled = false
-                    binding.pseudoEditText.isEnabled = false
                 }
                 is LoginState.Success -> {
                     binding.progressBar.visibility = View.GONE
@@ -85,7 +98,6 @@ class LoginActivity : AppCompatActivity() {
                 is LoginState.Error -> {
                     binding.progressBar.visibility = View.GONE
                     binding.loginButton.isEnabled = true
-                    binding.pseudoEditText.isEnabled = true
                     Toast.makeText(this, result.message, Toast.LENGTH_LONG).show()
                 }
             }
@@ -93,8 +105,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun navigateToMain() {
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
+        startActivity(Intent(this, MainActivity::class.java))
         finish()
     }
 }

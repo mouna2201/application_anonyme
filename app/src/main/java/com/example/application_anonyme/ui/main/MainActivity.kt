@@ -35,10 +35,14 @@ class MainActivity : AppCompatActivity() {
         // Charger le fragment par défaut (Feed)
         if (savedInstanceState == null) {
             loadFragment(FeedFragment())
+			binding.bottomNavigation.selectedItemId = R.id.nav_feed
         }
     }
 
     private fun setupBottomNavigation() {
+		binding.bottomNavigation.setOnItemReselectedListener {
+			// no-op on reselection to avoid reloading current fragment
+		}
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_feed -> {
